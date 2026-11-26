@@ -15,8 +15,8 @@ app.use(cors())
 app.use(express.json())
 
 //ROutes
-app.get('/', (req, res) => {
-    res.send('EventPulse Backend is Running 🚀');
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'OK', timestamp: new Date() });
 });
 app.use('/api/auth', authRoutes)
 app.use('/api/events', eventRoutes)
